@@ -28,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	ProductRepository productRepository;
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public JsonCustomResponse addProduct(Product product) {
 		 JsonCustomResponse response = new JsonCustomResponse();
@@ -163,10 +164,6 @@ public class ProductServiceImpl implements ProductService {
 	    return response;
 	}
 
-
-
-	
-	 
 }
  
     
